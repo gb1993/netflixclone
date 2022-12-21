@@ -1,0 +1,16 @@
+.poster-container {
+    width: 150px;
+    transform: scale(0.9);
+    transition: all ease 0.3s;
+    border: 0;
+    background: transparent;
+}
+
+.poster-container img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.poster-container:is(:hover, :focus) {
+    transform: scale(1);
+}
