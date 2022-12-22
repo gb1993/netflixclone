@@ -42,6 +42,14 @@ const getMovieList = async () => {
             items: await getData('/discover/movie?with_genres=27&language=pt-BR')
         },
         {
+            title: 'Aventura',
+            items: await getData('/discover/movie?with_genres=12&language=pt-BR')
+        },
+        {
+            title: 'Animação',
+            items: await getData('/discover/movie?with_genres=16&language=pt-BR')
+        },
+        {
             title: 'Comédia',
             items: await getData('/discover/movie?with_genres=35&language=pt-BR')
         },

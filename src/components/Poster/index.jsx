@@ -9,16 +9,7 @@ const Poster = ({item}) => {
           <img
             src={`https://tmdb.org/t/p/w300${movie.poster_path}`}
             alt={movie.original_name}
-            width="100%"
-            style={{transitionDelay: `${index}0ms`}} />
-
-            <div className="poster-hover">
-              <img
-              src={`https://tmdb.org/t/p/w300${movie.poster_path}`}
-              alt={movie.original_name}
-              width="100%"
-              style={{transitionDelay: `${index}0ms`}} />
-            </div>
+          />
         </button>
       ))}
     </>

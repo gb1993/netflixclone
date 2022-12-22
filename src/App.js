@@ -26,7 +26,7 @@ const App = () => {
 
   return (
     <>
-      {allMovies ? '' : <div className="loading" />}
+      {allMovies && banner ? '' : <div className="loading" />}
       {banner && <Header banner={banner} />}
       <main>
         {allMovies && allMovies.map((item, index) => (
