@@ -15,3 +15,37 @@
 .poster-container:is(:hover, :focus) {
     transform: scale(1);
 }
+
+.arrow-left,
+.arrow-right {
+    position: absolute;
+    z-index: 7;
+    background: rgba(20, 20, 20, 0.7);
+    height: 220px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.arrow-left img,
+.arrow-right img {
+    width: 40px;
+}
+
+.arrow-left {
+    left: 0;
+    margin-left: 30px;
+}
+
+.arrow-right {
+    right: 0;
+}
+
+.movie-list-container:hover .arrow-left,
+.movie-list-container:hover .arrow-right{
+    opacity: 1;
+    transition: all ease-in 0.3s;
+}

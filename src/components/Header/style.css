@@ -1,4 +1,5 @@
 header nav{
+    background: linear-gradient(to bottom, #141414 3%, transparent 100%);;
     position: fixed;
     display: flex;
     align-items: center;
@@ -28,7 +29,7 @@ header nav{
     content: '';
     width: 100%;
     height: 50vh;
-    background: linear-gradient(to top, #141414 30%, transparent 100%);
+    background: linear-gradient(to top, rgb(20, 20, 20) 30%, transparent 100%);
 }
 
 .hero-banner::after {
@@ -37,7 +38,7 @@ header nav{
     content: '';
     width: 50%;
     height: 100%;
-    background: linear-gradient(to right, #141414 30%, transparent 100%);
+    background: linear-gradient(to right, rgba(20, 20, 20, 0.9) 30%, transparent 100%);
 }
 
 article {
@@ -110,7 +111,7 @@ article button img {
 
 @media(max-width: 700px) {
     article {
-        padding-top: 40vh;
+        padding-top: 35vh;
         padding-right: 30px;
     }
     article h1 {
