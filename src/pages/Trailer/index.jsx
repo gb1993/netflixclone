@@ -1,23 +1,23 @@
-import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import './style.css';
+import goBackIcon from '../../assets/images/icons/go-back-icon.png';
 
 const Trailer = () => {
     const location = useLocation();
+    console.log(location)
     const { state: {link} } = location;
-
-    useEffect(() => {
-        
-    }, []);
 
     return (
         <div className="trailer-container">
-            <iframe 
+            <Link to="/" ><img src={goBackIcon} alt="go back icon" className="goBackImg" /></Link>
+            <iframe
+                title='youtube official trailer'
                 type="text/html"
                 width="100%"
                 height="100%"
-                src={`https://www.youtube.com/embed/${link}?autoplay=1&controls=1`}
-                frameborder="0"
+                src={link}
+                frameBorder="0"
             />
         </div>
     )

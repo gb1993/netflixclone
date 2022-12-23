@@ -32,7 +32,7 @@ const Poster = ({item}) => {
     if (youtubeTrailerId === false) {
       setLink(youtubeTrailerId);
     } else {
-      const youtubeLink = `https://www.youtube.com/watch?v=${youtubeTrailerId}`;
+      const youtubeLink = `https://www.youtube.com/embed/${youtubeTrailerId}`;
       navigate("/trailer", {state: {link: youtubeLink}});
     }
   }
@@ -44,7 +44,7 @@ const Poster = ({item}) => {
       <div className="movie-list" style={{
         marginLeft: scrollX,
         width: item.length * 150,
-        display: 'flex'
+        display: 'flex',
       }}>
         {item.map((movie, index) => (
           <button className="poster-container" key={index} onClick={ () => handleTrailer(movie.id) }>
