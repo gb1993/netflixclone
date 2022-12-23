@@ -43,33 +43,55 @@ header nav{
 article {
     padding-top: 30vh;
     padding-left: 30px;
-    z-index: 8;
     width: 100%;
-    max-width: 600px;
-    position: relative;
+    max-width: 650px;
+    z-index: 8;
+    position: inherit;
+}
+
+article span {
+    margin-right: 30px;
+    font-size: 25px;
+    font-weight: bold;
 }
 
 article h1 {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     font-size: 50px;
     text-shadow: 2px 2px 5px rgb(14 14 14 / 70%);
 }
 
 article p {
+    margin-top: 10px;
     font-size: 20px;
     text-shadow: 2px 2px 5px rgb(14 14 14 / 70%);
+    color: rgb(211, 211, 211);
 }
 
 article button {
-    padding: 18px 60px;
+    padding: 15px 30px;
     border-radius: 5px;
     border: none;
     margin-right: 20px;
     margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    transition: all ease 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+article button img {
+    width: 25px;
+    margin-right: 10px;
+}
+
+.header-buttons-container {
+    display: flex;
 }
 
 .watchgButton {
-    background: #FFFFFF;
+    background: rgb(255, 255, 255);
     color: #141414;
 }
 
@@ -79,22 +101,40 @@ article button {
 }
 
 .watchgButton:hover {
-    background: #ffffffeb;
+    background: rgba(255, 255, 255, 0.6);
 }
 
 .moreInfoButton:hover {
-    background: #7c7c7c9e;
+    background: rgba(124, 124, 124, 0.6);
 }
 
 @media(max-width: 700px) {
+    article {
+        padding-top: 40vh;
+        padding-right: 30px;
+    }
     article h1 {
         font-size: 30px;
+    }
+    article span {
+        font-size: 15px;
     }
     article p {
         font-size: 15px;
     }
     article button {
-        padding: 10px 30px;
-        margin-right: 10px;
+        padding: 10px 20px;
+        margin: 10px 10px 0 0;
+        font-size: 15px;
+    }
+}
+
+@media(max-width: 470px) {
+    article button {
+        padding: 5px 7px;
+        margin: 10px 5px 0 0;
+    }
+    article button img {
+        width: 10px;
     }
 }

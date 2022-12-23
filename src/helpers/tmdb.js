@@ -1,6 +1,7 @@
 import randomizer from "./randomizer";
-const API_KEY = '&api_key=d0c4988b1da4c2069b74d84b85cfd8cb';
+
 const API_URL = 'https://api.themoviedb.org/3';
+const API_KEY = '&api_key=d0c4988b1da4c2069b74d84b85cfd8cb';
 
 const getData = async (endpoint) => {
     try {
@@ -15,8 +16,18 @@ const getData = async (endpoint) => {
 const getBanner = async () => {
     const hero = await getData('/trending/all/week?language=pt-BR');
     const indexRandom = randomizer(hero.length);
-    console.log(hero[indexRandom])
     return hero[indexRandom];
+}
+
+const getTraillerId = async (movie_id) => {
+    try {
+        const response = await fetch(`${API_URL}/movie/${movie_id}/videos?api_key=d0c4988b1da4c2069b74d84b85cfd8cb&language=en-US`);
+        const trailerId = await response.json();
+        if (!trailerId.results) return false;
+        return trailerId.results[trailerId.results.length -1].key;
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 const getMovieList = async () => {
@@ -70,5 +81,6 @@ const getMovieList = async () => {
 
 export {
     getMovieList,
-    getBanner
+    getBanner,
+    getTraillerId
 };

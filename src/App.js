@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getMovieList, getBanner } from './helpers/tmdb';
-import Poster from './components/Poster/';
 import Header from './components/Header/';
+import Poster from './components/Poster/';
 import Footer from './components/Footer/';
 import './App.css';
 
