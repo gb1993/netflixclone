@@ -48,11 +48,6 @@ main {
     overflow-x: hidden;
 }
 
-.category-container {
-    display: flex;
-    width: 9999px;
-}
-
 footer {
     text-align: center;
     background-color: #000000;

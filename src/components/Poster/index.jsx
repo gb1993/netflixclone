@@ -7,6 +7,24 @@ import righttArrowIcon from '../../assets/images/icons/right-arrow-icon.png';
 const Poster = ({item}) => {
   const [link, setLink] = useState();
   const [noLink, setNolink] = useState(false);
+  const [scrollX, setScrollX] = useState(0);
+
+  const moveLeft = () => {
+    let moveLeft = scrollX + Math.round(window.innerWidth / 2);
+    if (moveLeft > 0) {
+      moveLeft = 0;
+    }
+    setScrollX(moveLeft);
+  }
+
+  const moveRight = () => {
+    let moveRight = scrollX - Math.round(window.innerWidth / 2);
+    let listWidth = item.length * 150;
+    if ((window.innerWidth - listWidth) > moveRight) {
+      moveRight = (window.innerWidth - listWidth) - 60;
+    }
+    setScrollX(moveRight);
+  }
 
   const handleTrailer = async (id) => {
     const youtubeTrailerId = await getTraillerId(id)
@@ -20,16 +38,22 @@ const Poster = ({item}) => {
 
   return (
     <>
-      <div className="arrow-left"><img src={leftArrowIcon} alt="left arrow icon" /></div>
-      <div className="arrow-right"><img src={righttArrowIcon} alt="right arrow icon" /></div>
-      {item.map((movie, index) => (
-        <button className="poster-container" key={index} onClick={ () => handleTrailer(movie.id) }>
-          <img
-            src={`https://tmdb.org/t/p/w300${movie.poster_path}`}
-            alt={movie.original_name}
-          />
-        </button>
-      ))}
+      <div className="arrow-left"><img src={leftArrowIcon} alt="left arrow icon" onClick={moveLeft} /></div>
+      <div className="arrow-right"><img src={righttArrowIcon} alt="right arrow icon" onClick={moveRight} /></div>
+      <div className="movie-list" style={{
+        marginLeft: scrollX,
+        width: item.length * 150,
+        display: 'flex'
+      }}>
+        {item.map((movie, index) => (
+          <button className="poster-container" key={index} onClick={ () => handleTrailer(movie.id) }>
+            <img
+              src={`https://tmdb.org/t/p/w300${movie.poster_path}`}
+              alt={movie.original_name}
+            />
+          </button>
+        ))}
+      </div>
     </>
   );
 }

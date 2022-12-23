@@ -32,9 +32,7 @@ const App = () => {
         {allMovies && allMovies.map((item, index) => (
           <div className="movie-list-container" key={index}>
             <h2>{item.title}</h2>
-            <div className="category-container">
                 <Poster item={item.items} />
-            </div>
           </div>
         ))}
       </main>
