@@ -39,8 +39,8 @@ const Poster = ({item}) => {
 
   return (
     <>
-      <div className="arrow-left"><img src={leftArrowIcon} alt="left arrow icon" onClick={moveLeft} /></div>
-      <div className="arrow-right"><img src={righttArrowIcon} alt="right arrow icon" onClick={moveRight} /></div>
+      <div className="arrow-left" onClick={moveLeft}><img src={leftArrowIcon} alt="left arrow icon" /></div>
+      <div className="arrow-right" onClick={moveRight}><img src={righttArrowIcon} alt="right arrow icon" /></div>
       <div className="movie-list" style={{
         marginLeft: scrollX,
         width: item.length * 150,
