@@ -21,15 +21,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     gap: 30px;
 }
+
 .user-container a {
     text-decoration: none;
-}
-
-.user-container img {
-    width: 160px;
-    border-radius: 5px;
 }
 
 .user-container p {
@@ -37,7 +34,13 @@
     font-size: 20px;
 }
 
+.avatar-container {
+    max-width: 160px;
+}
+
 .avatar-container img {
+    width: 100%;
+    border-radius: 5px;
     border: 2px solid transparent;
 }
 
@@ -61,4 +64,14 @@
 .users-container button:hover {
     border: 1px solid #FFFFFF;
     color: #FFFFFF;
+}
+
+@media(max-width: 768px) {
+    .avatar-container {
+        max-width: 120px;
+    }
+    .users-container h1{
+        font-size: 40px;
+        font-weight: 100;
+    }
 }
