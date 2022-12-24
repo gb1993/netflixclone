@@ -5,7 +5,6 @@ import goBackIcon from '../../assets/images/icons/go-back-icon.png';
 
 const Trailer = () => {
     const location = useLocation();
-    console.log(location)
     const { state: {link} } = location;
 
     return (

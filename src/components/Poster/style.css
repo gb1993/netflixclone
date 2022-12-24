@@ -4,7 +4,6 @@
     transition: all ease 0.3s;
     border: 0;
     background: transparent;
-    
 }
 
 .poster-container img {
@@ -50,4 +49,11 @@
 .movie-list-container:hover .arrow-right{
     opacity: 1;
     transition: all ease-in 0.3s;
+}
+
+@media(max-width: 768px) {
+    .arrow-left,
+    .arrow-right {
+        opacity: 1;
+    }
 }

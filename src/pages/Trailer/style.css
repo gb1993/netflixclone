@@ -5,13 +5,14 @@
 
 .goBackImg {
     position: absolute;
-    max-width: 60px;
+    max-width: 65px;
     cursor: pointer;
     margin-top: 60px;
     margin-left: 30px;
     transition: all ease 0.3s;
+    
 }
 
 .goBackImg:hover {
-    max-width: 65px;
+    max-width: 68px;
 }

@@ -45,6 +45,7 @@ const Poster = ({item}) => {
         marginLeft: scrollX,
         width: item.length * 150,
         display: 'flex',
+        transition: 'all ease 0.4s'
       }}>
         {item.map((movie, index) => (
           <button className="poster-container" key={index} onClick={ () => handleTrailer(movie.id) }>
