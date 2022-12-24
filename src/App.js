@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { getMovieList, getBanner } from './helpers/tmdb';
 import Header from './components/Header/';
 import Poster from './components/Poster/';
@@ -8,6 +9,8 @@ import './App.css';
 const App = () => {
   const [allMovies, setAllMovies] = useState();
   const [banner, setBanner] = useState();
+  const location = useLocation();
+  const {state: {avatar}} = location;
 
   const getAllData = async () => {
     const data = await getMovieList();
@@ -27,7 +30,7 @@ const App = () => {
   return (
     <>
       {allMovies && banner ? '' : <div className="loading" />}
-      {banner && <Header banner={banner} />}
+      {banner && <Header banner={banner} avatar={avatar} />}
       <main>
         {allMovies && allMovies.map((item, index) => (
           <div className="movie-list-container" key={index}>

@@ -3,12 +3,14 @@ import './style.css';
 import playIcon from '../../assets/images/icons/play-icon.png';
 import infoIcon from '../../assets/images/icons/info-icon.png';
 
-const Header = ({banner}) => {
+const Header = ({banner, avatar}) => {
     const [blackNav, setBlackNav] = useState('');
+
     const handleNavBackGround = () => {
         if (window.scrollY > 10) return setBlackNav('navStyle');
         return setBlackNav('');
     }
+
     useEffect(() => {
         window.addEventListener('scroll', handleNavBackGround);
     }, []);
@@ -17,7 +19,7 @@ const Header = ({banner}) => {
         <header>
             <nav className={blackNav}>
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1280px-Netflix_2015_logo.svg.png" alt="Logo" width={120} />
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" alt="usuário" width={35} />
+                <img src={avatar} alt="usuário" width={35} />
             </nav>
             <div
                 className="hero-banner" 
