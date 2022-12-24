@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { getTraillerId } from '../../helpers/tmdb';
 import './style.css';
 import leftArrowIcon from '../../assets/images/icons/left-arrow-icon.png';
@@ -9,6 +9,8 @@ const Poster = ({item}) => {
   const [link, setLink] = useState(false);
   const [scrollX, setScrollX] = useState(0);
   const navigate = useNavigate();
+  const location = useLocation();
+  const {state: {avatar}} = location;
 
   const moveLeft = () => {
     let moveLeft = scrollX + Math.round(window.innerWidth / 2);
@@ -33,7 +35,7 @@ const Poster = ({item}) => {
       setLink(youtubeTrailerId);
     } else {
       const youtubeLink = `https://www.youtube.com/embed/${youtubeTrailerId}`;
-      navigate("/trailer", {state: {link: youtubeLink}});
+      navigate("/trailer", {state: {link: youtubeLink, avatar}});
     }
   }
 

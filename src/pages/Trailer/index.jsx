@@ -5,17 +5,18 @@ import goBackIcon from '../../assets/images/icons/go-back-icon.png';
 
 const Trailer = () => {
     const location = useLocation();
-    const { state: {link} } = location;
+    console.log(location)
+    const { state } = location;
 
     return (
         <div className="trailer-container">
-            <Link to="/" ><img src={goBackIcon} alt="go back icon" className="goBackImg" /></Link>
+            <Link to="/app" state={{ avatar: state.avatar }}><img src={goBackIcon} alt="go back icon" className="goBackImg" /></Link>
             <iframe
                 title='youtube official trailer'
                 type="text/html"
                 width="100%"
                 height="100%"
-                src={link}
+                src={state.link}
                 frameBorder="0"
             />
         </div>
