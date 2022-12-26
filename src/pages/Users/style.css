@@ -74,4 +74,7 @@
         font-size: 40px;
         font-weight: 100;
     }
+    .users-container {
+        margin-top: 10vh;
+    }
 }

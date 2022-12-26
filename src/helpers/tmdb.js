@@ -13,6 +13,11 @@ const getData = async (endpoint) => {
     }
 }
 
+const searchMovie = async (movieName) => {
+    const movies = await getData(`/search/multi?language=en-US&query=${movieName}&page=1&include_adult=false`);
+    return movies;
+}
+
 const getBanner = async () => {
     const hero = await getData('/trending/all/week?language=pt-BR');
     const indexRandom = randomizer(hero.length);
@@ -20,14 +25,9 @@ const getBanner = async () => {
 }
 
 const getTraillerId = async (movie_id) => {
-    try {
-        const response = await fetch(`${API_URL}/movie/${movie_id}/videos?api_key=d0c4988b1da4c2069b74d84b85cfd8cb&language=en-US`);
-        const trailerId = await response.json();
-        if (!trailerId.results) return false;
-        return trailerId.results[trailerId.results.length -1].key;
-    } catch (error) {
-        console.log(error);
-    }
+    const trailerId = await getData(`/movie/${movie_id}/videos?language=en-US`);
+    if (!trailerId) return false;
+    return trailerId[trailerId.length -1].key;
 }
 
 const getMovieList = async () => {
@@ -82,5 +82,6 @@ const getMovieList = async () => {
 export {
     getMovieList,
     getBanner,
-    getTraillerId
+    getTraillerId,
+    searchMovie
 };

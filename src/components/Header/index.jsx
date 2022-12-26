@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import './style.css';
 import playIcon from '../../assets/images/icons/play-icon.png';
 import infoIcon from '../../assets/images/icons/info-icon.png';
+import searchIcon from '../../assets/images/icons/search-icon.png';
 
 const Header = ({banner, avatar}) => {
-    const [blackNav, setBlackNav] = useState('');
+    const [blackNav, setBlackNav] = useState('transparent');
 
     const handleNavBackGround = () => {
-        if (window.scrollY > 10) return setBlackNav('navStyle');
-        return setBlackNav('');
+        if (window.scrollY > 10) return setBlackNav('rgba(20, 20, 20)');
+        return setBlackNav('transparent');
     }
 
     useEffect(() => {
@@ -17,9 +18,15 @@ const Header = ({banner, avatar}) => {
 
     return (
         <header>
-            <nav className={blackNav}>
+            <nav style={{
+                transition: 'all 0.5s ease',
+                background: blackNav
+            }}>
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1280px-Netflix_2015_logo.svg.png" alt="Logo" width={120} />
-                <img src={avatar} alt="usuário" width={35} />
+                <div>
+                    <img src={searchIcon} alt="ícone de busca" width={35} />
+                    <img src={avatar} alt="usuário" style={{marginLeft: '60px', width:'35px'}}/>
+                </div>
             </nav>
             <div
                 className="hero-banner" 
