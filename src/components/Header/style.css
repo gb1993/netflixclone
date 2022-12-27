@@ -10,6 +10,23 @@ header nav{
     padding: 0 30px;
 }
 
+.nav-icons-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-icons-container img:hover{
+    cursor: pointer;
+}
+
+.nav-icons-container input {
+    background-color: inherit;
+    color: #FFFFFF;
+    padding: 5px;
+    border: 1px #FFFFFF solid;
+}
+
 .hero-banner {
     position: relative;
     height: 100vh;

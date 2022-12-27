@@ -49,8 +49,8 @@ const Poster = ({item}) => {
         display: 'flex',
         transition: 'all ease 0.4s'
       }}>
-        {item.map((movie, index) => (
-          <button className="poster-container" key={index} onClick={ () => handleTrailer(movie.id) }>
+        {item.map((movie) => (
+          <button className="poster-container" key={movie.id} onClick={ () => handleTrailer(movie.id) }>
             <img
               src={`https://tmdb.org/t/p/w300${movie.poster_path}`}
               alt={movie.original_name}

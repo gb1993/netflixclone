@@ -1,15 +1,25 @@
 import React, { useEffect, useState } from 'react';
+import { searchMovie } from '../../helpers/tmdb';
 import './style.css';
 import playIcon from '../../assets/images/icons/play-icon.png';
 import infoIcon from '../../assets/images/icons/info-icon.png';
 import searchIcon from '../../assets/images/icons/search-icon.png';
+import { useNavigate } from 'react-router-dom';
 
 const Header = ({banner, avatar}) => {
     const [blackNav, setBlackNav] = useState('transparent');
+    const [searchMovieName, setSearchMovieName] = useState('');
+    const navigate = useNavigate();
 
     const handleNavBackGround = () => {
         if (window.scrollY > 10) return setBlackNav('rgba(20, 20, 20)');
         return setBlackNav('transparent');
+    }
+
+    const searchByMovieName = async () => {
+        setSearchMovieName('');
+        const getSearchList = await searchMovie(searchMovieName);
+        navigate(`/search/${searchMovieName}`, {state: { getSearchList }});
     }
 
     useEffect(() => {
@@ -23,8 +33,9 @@ const Header = ({banner, avatar}) => {
                 background: blackNav
             }}>
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1280px-Netflix_2015_logo.svg.png" alt="Logo" width={120} />
-                <div>
-                    <img src={searchIcon} alt="ícone de busca" width={35} />
+                <div className="nav-icons-container">
+                    <input type="text" name="movie-name" id="movieName" onChange={ (e) => setSearchMovieName(e.target.value) } placeholder="Buscar" />
+                    <img src={searchIcon} alt="ícone de busca" width={35} onClick={searchByMovieName} />
                     <img src={avatar} alt="usuário" style={{marginLeft: '60px', width:'35px'}}/>
                 </div>
             </nav>
