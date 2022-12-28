@@ -54,6 +54,6 @@
 @media(max-width: 768px) {
     .arrow-left,
     .arrow-right {
-        opacity: 1;
+        display: none;
     }
 }
