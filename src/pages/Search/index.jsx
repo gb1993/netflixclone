@@ -12,25 +12,29 @@ const Search = () => {
     const handleTrailer = async (id) => {
         const youtubeTrailerId = await getTraillerId(id);
         if (youtubeTrailerId === false) {
-          return null;
+            return null;
         } else {
-          const youtubeLink = `https://www.youtube.com/embed/${youtubeTrailerId}`;
-          navigate("/trailer", {state: {link: youtubeLink}});
+            const youtubeLink = `https://www.youtube.com/embed/${youtubeTrailerId}`;
+            navigate("/trailer", {state: {link: youtubeLink}});
         }
       }
 
     return (
         <div className="search">
-            <Link to="/app"><img src={goBackIcon} alt="go back icon" /></Link>
-            <div className="search-container">
-                {getSearchList.map((movie) => (
-                    movie.poster_path ?
-                        <button className="poster-container" key={movie.id} onClick={ () => handleTrailer(movie.id) }>
-                            <img src={`https://tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.original_name} />
-                        </button>
-                    : ''
-                ))}
-            </div>
+            {!getSearchList ? <div className="loading" /> : 
+                <>
+                <Link to="/app"><img src={goBackIcon} alt="go back icon" /></Link>
+                    <div className="search-container">
+                        {getSearchList.map((movie) => (
+                            movie.poster_path ?
+                                <button className="poster-container" key={movie.id} onClick={ () => handleTrailer(movie.id) }>
+                                    <img src={`https://tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.original_name} />
+                                </button>
+                            : ''
+                        ))}
+                    </div>
+                </>
+            }
         </div>
     )
 }

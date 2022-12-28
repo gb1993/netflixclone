@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { getTraillerId } from '../../helpers/tmdb';
 import './style.css';
 import leftArrowIcon from '../../assets/images/icons/left-arrow-icon.png';
 import righttArrowIcon from '../../assets/images/icons/right-arrow-icon.png';
 
 const Poster = ({item}) => {
-  const [link, setLink] = useState(false);
   const [scrollX, setScrollX] = useState(0);
   const navigate = useNavigate();
-  const location = useLocation();
-  const {state: {avatar}} = location;
 
   const moveLeft = () => {
     let moveLeft = scrollX + Math.round(window.innerWidth / 2);
@@ -32,10 +29,10 @@ const Poster = ({item}) => {
   const handleTrailer = async (id) => {
     const youtubeTrailerId = await getTraillerId(id);
     if (youtubeTrailerId === false) {
-      setLink(youtubeTrailerId);
+      return null;
     } else {
       const youtubeLink = `https://www.youtube.com/embed/${youtubeTrailerId}`;
-      navigate("/trailer", {state: {link: youtubeLink, avatar}});
+      navigate("/trailer", {state: {link: youtubeLink}});
     }
   }
 

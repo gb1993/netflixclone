@@ -13,5 +13,6 @@
 }
 
 .search-container {
-    padding: 30px;
+    width: 80%;
+    margin: auto;
 }

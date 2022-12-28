@@ -9,7 +9,7 @@ const Trailer = () => {
 
     return (
         <div className="trailer-container">
-            <Link to="/app" state={{ avatar: state.avatar }}><img src={goBackIcon} alt="go back icon" className="goBackImg" /></Link>
+            <Link to="/app"><img src={goBackIcon} alt="go back icon" className="goBackImg" /></Link>
             <iframe
                 title='youtube official trailer'
                 type="text/html"
