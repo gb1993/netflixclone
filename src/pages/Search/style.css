@@ -13,6 +13,15 @@
 }
 
 .search-container {
-    width: 80%;
+    width: 90%;
     margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@media(max-width: 768px) {
+    .search-container button {
+        width: 140px;
+    }
 }
