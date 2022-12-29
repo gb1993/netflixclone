@@ -19,12 +19,12 @@ const Header = ({banner}) => {
     const searchByMovieName = async (e) => {
         e.preventDefault();
         const getSearchList = await searchMovie(searchMovieName);
-        setSearchMovieName('');
         if (getSearchList.length > 0) {
             navigate(`/search/${searchMovieName}`, {state: { getSearchList }});
         } else {
             alert('Busca não encontrada, tente outro termo.');
         }
+        setSearchMovieName('');
     }
 
     useEffect(() => {

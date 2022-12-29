@@ -26,8 +26,8 @@ const getBanner = async () => {
 
 const getTraillerId = async (movie_id) => {
     const trailerId = await getData(`/movie/${movie_id}/videos?language=en-US`);
-    if (!trailerId) return false;
-    return trailerId[trailerId.length -1].key;
+    if (trailerId && trailerId.length > 0) return trailerId[trailerId.length -1].key;;
+    return false;
 }
 
 const getMovieList = async () => {
