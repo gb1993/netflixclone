@@ -31,9 +31,11 @@ const App = () => {
       {banner && <Header banner={banner} />}
       <main>
         {allMovies && allMovies.map((item, index) => (
-          <div className="movie-list-container" key={index}>
-            <h2>{item.title}</h2>
-                <Poster item={item.items} />
+          <div key={index}>
+            <h2 style={{marginLeft: '30px'}}>{item.title}</h2>
+            <div className="movie-list-container">
+              <Poster item={item.items} />
+            </div>
           </div>
         ))}
       </main>

@@ -45,7 +45,13 @@ main {
 .movie-list-container {
     margin-left: 30px;
     margin-bottom: 40px;
-    overflow-x: hidden;
+    overflow-x: scroll;
+    scrollbar-width: none; /* para firefox */
+    -ms-overflow-style: none; /* para edge */
+}
+
+.movie-list-container::-webkit-scrollbar {
+    display: none; /* para chrome */
 }
 
 footer {
