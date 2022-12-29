@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { searchMovie } from '../../helpers/tmdb';
 import './style.css';
 import playIcon from '../../assets/images/icons/play-icon.png';
 import infoIcon from '../../assets/images/icons/info-icon.png';
 import searchIcon from '../../assets/images/icons/search-icon.png';
-import { useNavigate } from 'react-router-dom';
 
 const Header = ({banner}) => {
     const [blackNav, setBlackNav] = useState('transparent');
@@ -16,10 +16,15 @@ const Header = ({banner}) => {
         return setBlackNav('transparent');
     }
 
-    const searchByMovieName = async () => {
-        setSearchMovieName('');
+    const searchByMovieName = async (e) => {
+        e.preventDefault();
         const getSearchList = await searchMovie(searchMovieName);
-        navigate(`/search/${searchMovieName}`, {state: { getSearchList }});
+        setSearchMovieName('');
+        if (getSearchList.length > 0) {
+            navigate(`/search/${searchMovieName}`, {state: { getSearchList }});
+        } else {
+            alert('Busca não encontrada, tente outro termo.');
+        }
     }
 
     useEffect(() => {
@@ -36,8 +41,8 @@ const Header = ({banner}) => {
                 <div className="nav-icons-container">
                     <form>
                         <input type="text" name="movie-name" id="movieName" onChange={ (e) => setSearchMovieName(e.target.value) } placeholder="Buscar" />
+                        <button type="submit" className="search-button" onClick={searchByMovieName}><img src={searchIcon} alt="ícone de busca" width={35} /></button>
                     </form>
-                    <img src={searchIcon} alt="ícone de busca" width={35} onClick={searchByMovieName} />
                     <img src={sessionStorage.getItem('avatar')} alt="user avatar" style={{marginLeft: '60px', width:'35px'}}/>
                 </div>
             </nav>

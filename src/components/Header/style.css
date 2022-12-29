@@ -20,6 +20,16 @@ header nav{
     cursor: pointer;
 }
 
+form {
+    display: flex;
+    align-items: center;
+}
+
+.search-button {
+    background: transparent;
+    border: none;
+}
+
 .nav-icons-container input {
     background-color: inherit;
     color: #FFFFFF;
