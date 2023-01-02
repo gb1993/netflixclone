@@ -25,6 +25,10 @@ form {
     align-items: center;
 }
 
+form input {
+    display: none;
+}
+
 .search-button {
     background: transparent;
     border: none;
