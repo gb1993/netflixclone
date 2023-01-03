@@ -7,13 +7,13 @@ import infoIcon from '../../assets/images/icons/info-icon.png';
 import searchIcon from '../../assets/images/icons/search-icon.png';
 
 const Header = ({banner}) => {
-    const [blackNav, setBlackNav] = useState('transparent');
+    const [blackNav, setBlackNav] = useState('linear-gradient(180deg,rgba(0,0,0,.7) 10%,transparent)');
     const [searchMovieName, setSearchMovieName] = useState('');
     const navigate = useNavigate();
     
     const handleNavBackGround = () => {
         if (window.scrollY > 10) return setBlackNav('rgba(20, 20, 20)');
-        return setBlackNav('transparent');
+        return setBlackNav('linear-gradient(180deg,rgba(0,0,0,.7) 10%,transparent)');
     }
 
     const searchByMovieName = async (e) => {
@@ -34,7 +34,7 @@ const Header = ({banner}) => {
     return (
         <header>
             <nav style={{
-                transition: 'all 0.5s ease',
+                transition: 'all 0.5s ease-in-out',
                 background: blackNav
             }}>
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1280px-Netflix_2015_logo.svg.png" alt="Logo" width={120} />
