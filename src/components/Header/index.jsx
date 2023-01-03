@@ -22,9 +22,8 @@ const Header = ({banner}) => {
         if (getSearchList.length > 0) {
             navigate(`/search/${searchMovieName}`, {state: { getSearchList }});
         } else {
-            alert('Busca não encontrada, tente outro termo.');
+            alert('Busca não encontrada, tente outro título.');
         }
-        setSearchMovieName('');
     }
 
     useEffect(() => {
