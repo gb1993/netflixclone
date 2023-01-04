@@ -23,9 +23,10 @@ header nav{
 form {
     display: flex;
     align-items: center;
+    gap: 20px;
 }
 
-form input {
+#movieName {
     display: none;
 }
 
@@ -142,10 +143,7 @@ article button img {
     article h1 {
         font-size: 30px;
     }
-    article span {
-        font-size: 15px;
-    }
-    article p {
+    article span, article p {
         font-size: 15px;
     }
     article button {

@@ -24,6 +24,18 @@ const getBanner = async () => {
     return hero[indexRandom];
 }
 
+const getRuntime = async (id, type) => {
+    if (type === 'tv') {
+        const response = await fetch(`${API_URL}/tv/${id}?api_key=d0c4988b1da4c2069b74d84b85cfd8cb`);
+        const data = await response.json();
+        return data.last_episode_to_air.season_number > 1 ? `${data.last_episode_to_air.season_number} Temporadas` : `${data.last_episode_to_air.season_number} Temporada`;
+    } else {
+        const response = await fetch(`${API_URL}/movie/${id}?api_key=d0c4988b1da4c2069b74d84b85cfd8cb`);
+        const data = await response.json();
+        return `${data.runtime} Minutos`;
+    }
+}
+
 const getTraillerId = async (movie_id) => {
     const trailerId = await getData(`/movie/${movie_id}/videos?language=en-US`);
     if (trailerId && trailerId.length > 0) return trailerId[trailerId.length -1].key;;
@@ -33,7 +45,7 @@ const getTraillerId = async (movie_id) => {
 const getMovieList = async () => {
     return [
         {
-            title: 'Original NetFlix',
+            title: 'Original Netfrix',
             items: await getData('/discover/tv?with_network-213&language=pt-BR')
         },
         {
@@ -83,5 +95,6 @@ export {
     getMovieList,
     getBanner,
     getTraillerId,
-    searchMovie
+    searchMovie,
+    getRuntime
 };

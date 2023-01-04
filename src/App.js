@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getMovieList, getBanner } from './helpers/tmdb';
+import { getMovieList, getBanner, getRuntime } from './helpers/tmdb';
 import Header from './components/Header/';
 import Poster from './components/Poster/';
 import Footer from './components/Footer/';
@@ -16,7 +16,18 @@ const App = () => {
 
   const getHeroBanner = async () => {
     const data = await getBanner();
-    setBanner(data);
+    const bannerRuntime = await getRuntime(data.id, data.media_type);
+    const bannerData = {
+      backdrop_path: data.backdrop_path,
+      title: data.title,
+      original_name: data.original_name,
+      vote_average: data.vote_average,
+      release_date: data.release_date,
+      overview: data.overview,
+      first_air_date: data.first_air_date,
+      runTime: bannerRuntime
+    }
+    setBanner(bannerData);
   }
 
   useEffect(() => {

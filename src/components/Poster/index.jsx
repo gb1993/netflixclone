@@ -48,6 +48,15 @@ const Poster = ({item}) => {
       }}>
         {item.map((movie) => (
           <button className="poster-container" key={movie.id} onClick={ () => handleTrailer(movie.id) }>
+            <div className="poster-detail">
+              <h3>{movie.title || movie.original_name}</h3>
+              <div>
+                <span style={{color: movie.vote_average > 5 ? 'green' : 'red'}}>{movie.vote_average.toFixed(1)} pontos</span>
+                <span>|</span>
+                <span>{(movie.release_date || movie.first_air_date).substr(0, 4)}</span>
+              </div>
+              <p>{movie.overview.substr(0, 50)}...</p>
+            </div>
             <img
               src={`https://tmdb.org/t/p/w300${movie.poster_path}`}
               alt={movie.original_name}
