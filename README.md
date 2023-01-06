@@ -1,4 +1,4 @@
-# ![#f03c15]NETFRIX `#f03c15`
+![#f03c15]# NETFRIX
 
 
 App criado para treinar conhecimentos em React, UX/UI e consumo de API.
