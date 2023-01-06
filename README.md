@@ -18,7 +18,4 @@ Para rodar o servidor
 
 Para saber mais sobre NPM ou YARN veja os links:
 
-<a href="https://yarnpkg.com/">yarn</a>
-
-<a href="https://docs.npmjs.com/">NPM</a>
-    
+<a href="https://yarnpkg.com/">yarn</a>, <a href="https://docs.npmjs.com/">NPM</a>
