@@ -1,4 +1,4 @@
-```html
+```css
 <h1 style="color: red">NETFRIX</h1>
 ```
 
