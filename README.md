@@ -1,5 +1,6 @@
 # NETFRIX
 
+É tipo <a href="https://www.netflix.com/">netflix</a> :)
 
 App criado para treinar conhecimentos em React, UX/UI e consumo de API.
 
