@@ -19,11 +19,14 @@ const Header = ({banner}) => {
 
     const searchByMovieName = async (e) => {
         e.preventDefault();
-        const getSearchList = await searchMovie(searchMovieName);
-        if (getSearchList.length > 0) {
-            navigate(`/search/${searchMovieName}`, {state: { getSearchList }});
-        } else {
-            alert('Busca não encontrada, tente outro título.');
+        if (searchMovieName.length > 3) {
+            const getSearchList = await searchMovie(searchMovieName);
+            if (getSearchList.length > 0) {
+                navigate(`/search/${searchMovieName}`, {state: { getSearchList }});
+            } else {
+                alert('Busca não encontrada, tente outro título.');
+            }
+            setSearchMovieName('');
         }
     }
 
@@ -41,7 +44,9 @@ const Header = ({banner}) => {
                 <div className="nav-icons-container">
                     <form>
                         <input type="text" name="movie-name" id="movieName" onChange={ (e) => setSearchMovieName(e.target.value) } placeholder="Buscar" autoComplete="off" />
-                        <button type="submit" className="search-button" onClick={searchByMovieName}><img src={searchIcon} alt="ícone de busca" width={35} /></button>
+                        <button type="submit" className="search-button" onClick={searchByMovieName}>
+                            <img src={searchIcon} alt="ícone de busca" width={35} onClick={ (e) => e.target.parentNode.previousElementSibling.classList.toggle('display')} />
+                        </button>
                     </form>
                     <img src={sessionStorage.getItem('avatar')} alt="user avatar" style={{marginLeft: '60px', width:'35px'}}/>
                 </div>
