@@ -8,11 +8,11 @@ const Search = () => {
     const location = useLocation();
     const {state: {getSearchList}} = location;
     const navigate = useNavigate();
-    console.log(getSearchList)
+
     const handleTrailer = async (id) => {
         const youtubeTrailerId = await getTraillerId(id);
         if (youtubeTrailerId === false) {
-            return null;
+            alert('Desculpe, o trailer selecionado está indisponível no momento.');
         } else {
             const youtubeLink = `https://www.youtube.com/embed/${youtubeTrailerId}`;
             navigate("/trailer", {state: {link: youtubeLink}});
