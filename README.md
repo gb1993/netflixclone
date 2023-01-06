@@ -20,6 +20,10 @@ Para rodar o servidor
 
 Pronto! Seu app estará rodando em http://localhost:3000
 
-## Para saber mais sobre NPM ou YARN veja os links:
+## Link para o app em produção
+    
+    <a href="https://gb1993.github.io/netflixclone/">NETFRIX</a>
+
+### Para saber mais sobre NPM ou YARN veja os links:
 
 <a href="https://yarnpkg.com/">yarn</a>, <a href="https://docs.npmjs.com/">NPM</a>
