@@ -1,4 +1,4 @@
-<h1>{c:red}NETFRIX{/c}</h1>
+# {c:red}NETFRIX{/c}
 
 App criado para treinar conhecimentos em React, UX/UI e consumo de API.
 
