@@ -59,9 +59,9 @@ const Header = ({banner}) => {
                 <article>
                     <h1>{banner.title || banner.original_name}</h1>
                     <span style={{color: 'green'}}>{banner.vote_average.toFixed(1)} pontos</span>
-                    <span>{(banner.release_date || banner.first_air_date).substr(0, 4)}</span>
+                    <span>{(banner.release_date || banner.first_air_date)?.substr(0, 4)}</span>
                     <span style={{color: 'rgb(189, 189, 201)'}}>{banner.runTime}</span>
-                    <p>{banner.overview.substr(0, 170)}...</p>
+                    <p>{banner.overview?.substr(0, 170)}...</p>
                     <div className="header-buttons-container">
                         <button className="watchgButton"><img src={playIcon} alt="play icon" />Assistir</button>
                         <button className="moreInfoButton"><img src={infoIcon} alt="info icon" />Mais Informações</button>
